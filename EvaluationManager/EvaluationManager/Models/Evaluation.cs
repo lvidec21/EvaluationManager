@@ -5,6 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace EvaluationManager.Models {
-    internal class Evaluation {
+    public class Evaluation 
+    {
+        public  Activity MyProperty { get; set; }
+        public Student Student { get; set; }    
+        public Teacher Evaluator { get; set; }
+        public DateTime EvaluationDate { get; set; }
+        public int Points { get; set; }
+        public bool IsSufficientForGrade() 
+        {
+            return Points >= Activity.MinPointsForGrade; 
+        }
+        public bool IsSufficientForSignature() 
+        {
+            return Points >= Activity.MinPointsForSignature;
+        }
     }
 }
